@@ -1,0 +1,56 @@
+.sr-only {
+    border: 0;
+    clip: rect(1px, 1px 1px, 1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 30px;
+    font-size: 1.5rem;
+}
+
+.container-input label {
+    cursor: not-allowed;
+    height: 30px;
+    font-size: 1.5rem;
+}
+
+.container-button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-button button {
+    background-color: #00bc77;
+    height: 50px;
+    width: 130px;
+    font-size: 1.3rem;
+    color: white;
+}
+
+@media (max-width: 920px) {
+    .container {
+        flex-direction: column;
+    }
+}
