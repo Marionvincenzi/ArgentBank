@@ -1,13 +1,12 @@
 import { apiUrl } from "../config";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import store from "../redux/store"
 
 export const fetchUserProfile = createAsyncThunk(
     "profile/fetchUserProfile",
-    async (_, { rejectWithValue }) => {
+    async (_, { getState, rejectWithValue }) => {
         try {
-            const token = store.getState().auth.token;
+            const token = getState().auth.token;
             if (!token) {
                 throw new Error("No token found");
             }
@@ -32,9 +31,9 @@ export const fetchUserProfile = createAsyncThunk(
 
 export const updateUserProfile = createAsyncThunk(
     "profile/updateUserProfile",
-    async (userName, { rejectWithValue }) => {
+    async (userName, { getState, rejectWithValue }) => {
         try {
-            const token = store.getState().auth.token;
+            const token = getState().auth.token;
             if (!token) {
                 throw new Error("No token found");
             }

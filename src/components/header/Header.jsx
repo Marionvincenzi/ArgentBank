@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "../../img/argentBankLogo.png";
+import logo from "../../img/argentBankLogo.webp";
 import { NavLink } from 'react-router-dom';
 import {useSelector, useDispatch } from "react-redux";
 import { logout } from "../../redux/userSlice";
@@ -8,7 +8,7 @@ import "../../styles/components/Header.css"
 const Header = () => {
  const dispatch = useDispatch();
  const user = useSelector((state) => state.auth.user);
- const action = useSelector((state) => state.auth.action);
+ const profile = useSelector((state) => state.profile.profile);
 
  const handleLogout = (e) => {
   e.preventDefault();
@@ -22,11 +22,11 @@ const Header = () => {
     <h1 className='sr-only'>Argent Bank</h1>
     </NavLink>
     <div className='main-nav-right'>
-      {user && action ? (
+      {user && profile ? (
         <>
         <NavLink to="/action" className="main-nav-item">
         <i className='fa fa-user-circle'></i>
-        {action.userName}
+        {profile.userName}
         </NavLink>
         <a href='/' onClick={handleLogout} className='main-nav-item'>
         <i className='fa fa-sign-out'></i>
